@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <style>
+    .mobile-menu{
+    left: -100%;
+    transition: 0.2s;
+
+    }
+    .mobile-menu.active{
+        left: 0;
+    } 
+  </style>
+</head>
+<body>
+<header class="px-4">
+    <div class="max-w-[1150px] mx-auto">
+        <div class="flex justify-between items-center pt-14">
+            <div class="site_logo sm:text-center">
+                <a href="#">
+                    <img src="../image/download.svg" alt="site_logo">
+                </a>
+            </div>
+            <div class="hidden md:block">
+                <nav>
+                    <ul class="flex text-black cursor-pointer font-['Open Sans']">
+                        <li class="mx-4">
+                            <a class="" href="#">Careers</a>
+                        </li>
+                        <li class="mx-4">
+                            <a class="" href="#">Tools</a>
+                        </li>
+                        <li class="mx-4">
+                            <a class="" href="#">Services</a>
+                        </li>
+                        <li class="mx-4">
+                            <a class="" href="#">Blog</a>
+                        </li>
+                        <li class="mx-4">
+                            <a class="" href="#">About</a>
+                        </li>
+                        <li>
+                            <button class="-mt-1 bg-sky-950 text-white font-['Open Sans'] px-10 py-2 mx-4 duration-500  rounded-3xl font-bold">
+                                Contact
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="block md:hidden">
+                <!-- mobile-menu toggle button -->
+                <button id="mobile-btn" class="block md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="#000" id="menu-icon">
+                        <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+                    </svg>
+                </button>
+                <!-- mobile-menu -->
+                <div class="mobile-menu absolute" id="mobile-bar">
+                    <ul class="flex flex-col gap-10 h-[450px] w-[80vw] items-center bg-slate-500 font-['Open Sans'] mt-[-89px] pt-[40px] text-white">
+                        <li class="mx-4">
+                            <a class="hover:text-cyan-500 duration-500" href="#">Product</a>
+                        </li>
+                        <li class="mx-4">
+                            <a class="hover:text-cyan-500 duration-500" href="#">Services</a>
+                        </li>
+                        <li class="mx-4">
+                            <a class="hover:text-cyan-500 duration-500" href="#">About</a>
+                        </li>
+                        <li>
+                            <button class="-mt-1 bg-white text-blue-950 font-['Open Sans'] px-10 py-2 mx-4 duration-500 hover:bg-cyan-500 rounded-3xl font-bold">
+                                Login
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const btn = document.getElementById('mobile-btn');
+    const menu = document.getElementById('mobile-bar');
+    const menuIcon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', function () {
+        menu.classList.toggle('active');
+        if (menu.classList.contains('active')) {
+            menuIcon.setAttribute('viewBox', '0 0 50 50');
+            menuIcon.innerHTML = '<path d="M 10 10 L 40 40 M 10 40 L 40 10" stroke="#000" stroke-width="5" stroke-linecap="round"/>';
+        } else {
+            menuIcon.setAttribute('viewBox', '0 0 50 50');
+            menuIcon.innerHTML = '<path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>';
+        }
+    });
+
+</script>
+   
+    
+
+
+</body>
+</html>
